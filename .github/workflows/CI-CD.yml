@@ -66,5 +66,5 @@ jobs:
           kubectl apply -f deployment.yaml
           kubectl apply -f service.yaml
           kubectl scale deployment my-node-app --replicas=6
-          sleep 40
+          sleep 80
           # kubectl get pods
