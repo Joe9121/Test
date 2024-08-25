@@ -53,16 +53,13 @@ jobs:
           chmod +x kubectl
           sudo mv kubectl /usr/local/bin/
 
-      - name: Docker Set Up
-        uses: docker/setup-buildx-action@v3
-
       - name: Start Minikube
         run: |
           minikube start --driver=docker
 
       - name: Kubernetes Orchestration
         run: |
-          kubectl apply -f deployment.yaml 
+          kubectl apply -f deployment.yaml
           kubectl apply -f service.yaml
           kubectl scale deployment my-node-app --replicas=6
           sleep 40
