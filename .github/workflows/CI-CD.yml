@@ -60,6 +60,7 @@ jobs:
       - name: Kubernetes Orchestration
         run: |
           pwd
+          ls
           kubectl apply -f deployment.yaml
           kubectl apply -f service.yaml
           kubectl scale deployment my-node-app --replicas=6
