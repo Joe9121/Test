@@ -1,4 +1,4 @@
-name: building&deploying my-node-app
+name: CI-CD
 
 on:
   push:
