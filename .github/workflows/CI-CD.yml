@@ -8,7 +8,7 @@ on:
 jobs:
  
 
-  building&deploying:
+  building-deploying:
     name:  building&deploying
     runs-on: ubuntu-latest
     steps:
