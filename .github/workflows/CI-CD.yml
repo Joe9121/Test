@@ -52,7 +52,7 @@ jobs:
 
       - name: Docker Image Build
         run: |
-          docker build -t sampleapp:latest .
+          docker build -t josephmichael1/my-node-app:latest .
           docker tag my-node-app:latest josephmichael1/my-node-app:latest
 
       - name: Push Docker Image
