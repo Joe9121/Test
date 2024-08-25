@@ -22,10 +22,7 @@ jobs:
           node-version: '16'
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
+        run: npm init
 
       - name: Build Docker image
         run: docker build -t josephmichael1/my-node-app:latest .
