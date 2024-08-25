@@ -38,4 +38,4 @@ jobs:
 
       - name: Push Docker image
         run: docker push josephmichael1/my-node-app:latest
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
