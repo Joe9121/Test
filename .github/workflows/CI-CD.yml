@@ -27,7 +27,6 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
   build:
     name: Build Docker Image
     runs-on: ubuntu-latest
