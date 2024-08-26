@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@main
+        uses: SonarSource/sonarcloud-github-action@v1
         with:
           args: 'sonar-scanner'
         env:
