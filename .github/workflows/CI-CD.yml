@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-
+        
       - name: Run SonarQube Scanner
         env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
@@ -35,7 +35,9 @@ jobs:
             -Dsonar.projectKey=my-node-app \
             -Dsonar.sources=. \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+            -X
+
 
   build:
     name: Build Docker Image
