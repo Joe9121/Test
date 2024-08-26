@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build Docker Image
+    name: Build and Analyze Code
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,8 +20,22 @@ jobs:
         with:
           node-version: 16
 
-      - name: Downloading Node.js Package
-        run: npm init -y
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run SonarQube Scanner
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          curl -sSLo sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip
+          unzip sonar-scanner-cli.zip
+          export PATH=$PATH:${{ github.workspace }}/sonar-scanner-4.8.0.2856-linux/bin
+          sonar-scanner \
+            -Dsonar.projectKey=my-node-app \
+            -Dsonar.sources=. \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
       - name: Docker Hub Login
         uses: docker/login-action@v3
