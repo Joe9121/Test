@@ -60,10 +60,21 @@ jobs:
         run: |
           minikube start --driver=docker
 
-      - name: Kubernetes Orchestration
-        run: |
-          kubectl apply -f deployment.yaml 
-          kubectl apply -f service.yaml
-          kubectl scale deployment my-node-app --replicas=6
-          sleep 40
-          # kubectl get pods
+    - name: Kubernetes Orchestration
+  run: |
+    set -e  # Exit on any error
+    kubectl apply -f deployment.yaml
+    kubectl apply -f service.yaml
+
+    # Wait until the deployment is available
+    kubectl rollout status deployment/my-node-app
+
+    # Scale the deployment
+    kubectl scale deployment my-node-app --replicas=6
+
+    # Wait for pods to be up and running
+    echo "Waiting for pods to be ready..."
+    sleep 60  # Increase wait time if needed
+
+    # Verify pod status
+    kubectl get pods
