@@ -31,11 +31,9 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v1
-        with:
-          args: 'sonar-scanner'
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          JAVA_HOME: ${{ steps.setup-java.outputs.java-home }}  # Ensure JAVA_HOME points to Java 17
+        # Remove the `args` field
 
   build:
     name: Build Docker Image
