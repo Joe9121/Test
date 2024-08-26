@@ -61,6 +61,7 @@ jobs:
           minikube start --driver=docker
 
     - name: Kubernetes Orchestration
+    
   run: |
     set -e  # Exit on any error
     kubectl apply -f deployment.yaml
