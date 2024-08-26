@@ -22,22 +22,22 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-        
-      - name: Run SonarQube Scanner
-        env:
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Download and Install SonarQube Scanner
         run: |
           curl -sSLo sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip
           unzip sonar-scanner-cli.zip
           export PATH=$PATH:${{ github.workspace }}/sonar-scanner-4.8.0.2856-linux/bin
+
+      - name: Run SonarQube Scanner
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
           sonar-scanner \
             -Dsonar.projectKey=my-node-app \
             -Dsonar.sources=. \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
             -X
-
 
   build:
     name: Build Docker Image
