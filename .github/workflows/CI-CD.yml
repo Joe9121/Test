@@ -118,6 +118,6 @@ jobs:
                 targetPort: 3000
             type: ClusterIP
           EOF
-          kubectl scale deployment myapp --replicas=6
-          sleep 40
-          # kubectl get pods
+          #kubectl scale deployment myapp --replicas=6
+          sleep 10
+          kubectl get pods
