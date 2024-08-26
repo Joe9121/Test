@@ -25,11 +25,9 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v1
-        with:
-          # The action will automatically find the sonar-project.properties file or other configurations
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          # If needed, add additional environment variables for configuration
+          # Optionally, add other environment variables if needed
 
   build:
     name: Build Docker Image
