@@ -17,7 +17,7 @@ This project demonstrates how to containerize a Node.js application using Podman
 - Kubernetes Cluster: Have Minikube or OpenShift set up and configured. See [Minikube installation](https://minikube.sigs.k8s.io/docs/start/) or [OpenShift installation](https://docs.openshift.com/container-platform/latest/installing/index.html) for guidance.
 - GitHub Account: Create a GitHub account to manage your version control and CI/CD pipeline.
 - SonarQube: Set up an instance of SonarQube for code quality analysis. Refer to the [SonarQube documentation](https://docs.sonarqube.org/latest/setup/get-started-2/) for installation and setup.
-- Node.js Application: This guide assumes you have a basic Node.js application. If not, a sample Node.js app can be found [here](https://github.com/nodejs/node/tree/main/examples).
+- Node.js Application: This guide assumes you have a basic Node.js application. If not, a sample Node.js app can be found [here](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs).
 
  Project Structure
 
