@@ -1,17 +1,17 @@
 Node.js Application: Containerization and Deployment with Podman, Kubernetes, GitHub Actions, and SonarQube
 
- Overview
+Overview
 
 This project demonstrates how to containerize a Node.js application using Podman, deploy it to a Kubernetes cluster, and integrate GitHub Actions and SonarQube for continuous integration and code quality monitoring. The goal is to provide a hands-on example of modern DevOps practices.
 
- Objectives
+Objectives
 
 - Containerize a Node.js application using Podman.
 - Deploy the containerized application to a Kubernetes cluster.
 - Set up a CI/CD pipeline using GitHub Actions.
 - Integrate SonarQube for code quality and vulnerability analysis.
 
- Prerequisites
+Prerequisites
 
 - Podman: Ensure Podman is installed on your local machine. Follow the [Podman installation guide](https://podman.io/getting-started/installation).
 - Kubernetes Cluster: Have Minikube or OpenShift set up and configured. See [Minikube installation](https://minikube.sigs.k8s.io/docs/start/) or [OpenShift installation](https://docs.openshift.com/container-platform/latest/installing/index.html) for guidance.
@@ -19,16 +19,16 @@ This project demonstrates how to containerize a Node.js application using Podman
 - SonarQube: Set up an instance of SonarQube for code quality analysis. Refer to the [SonarQube documentation](https://docs.sonarqube.org/latest/setup/get-started-2/) for installation and setup.
 - Node.js Application: This guide assumes you have a basic Node.js application. If not, a sample Node.js app can be found [here](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs).
 
- Project Structure
+Project Structure
 
 - `Dockerfile`: The Dockerfile used to build the Node.js application container image.
 - `k8s/`: Directory containing Kubernetes manifests for deployment.
 - `.github/workflows/`: Directory with GitHub Actions workflows for CI/CD.
 - `sonar-project.properties`: Configuration file for SonarQube analysis.
 
- Getting Started
+Getting Started
 
- 1. Build and Run the Container
+1. Build and Run the Container
 
 1. Create Dockerfile
 
@@ -71,7 +71,7 @@ This project demonstrates how to containerize a Node.js application using Podman
 
    Your application should now be accessible at `http://localhost:3000`.
 
- 2. Deploy to Kubernetes
+2. Deploy to Kubernetes
 
 1. Create Kubernetes Deployment Manifest
 
@@ -130,7 +130,7 @@ This project demonstrates how to containerize a Node.js application using Podman
    kubectl get pods
    ```
 
- 3. Set Up GitHub Actions
+3. Set Up GitHub Actions
 
 1. Create GitHub Actions Workflow
 
@@ -177,7 +177,7 @@ This project demonstrates how to containerize a Node.js application using Podman
            kubectl apply -f k8s/service.yaml
    ```
 
- 4. Integrate SonarQube
+4. Integrate SonarQube
 
 1. Configure SonarQube Analysis
 
@@ -203,7 +203,7 @@ This project demonstrates how to containerize a Node.js application using Podman
        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
    ```
 
- Testing
+Testing
 
 Verify that your Node.js application is running correctly in Kubernetes by accessing the service's external IP or URL.
 
@@ -214,11 +214,11 @@ kubectl get deployments
 kubectl get services
 ```
 
- Troubleshooting
+Troubleshooting
 
 - Pods Not Starting: Check logs with `kubectl logs <pod-name>` and describe the pod with `kubectl describe pod <pod-name>`.
 - CI/CD Issues: Review the Actions logs on GitHub for detailed error messages.
 
- Conclusion
+Conclusion
 
 This guide provided a comprehensive walkthrough of containerizing a Node.js application, deploying it with Kubernetes, and setting up CI/CD with GitHub Actions and SonarQube. Feel free to adapt and expand this setup based on your project's requirements.
